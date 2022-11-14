@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\47066568\\Desktop\\TP09-API\\TP09-API.csproj": {}
+    "c:\\Users\\47066568\\Desktop\\TP09-API\\TP09-API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\47066568\\Desktop\\TP09-API\\TP09-API.csproj": {
+    "c:\\Users\\47066568\\Desktop\\TP09-API\\TP09-API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\47066568\\Desktop\\TP09-API\\TP09-API.csproj",
+        "projectUniqueName": "c:\\Users\\47066568\\Desktop\\TP09-API\\TP09-API.csproj",
         "projectName": "TP09-API",
-        "projectPath": "C:\\Users\\47066568\\Desktop\\TP09-API\\TP09-API.csproj",
+        "projectPath": "c:\\Users\\47066568\\Desktop\\TP09-API\\TP09-API.csproj",
         "packagesPath": "C:\\Users\\47066568\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\47066568\\Desktop\\TP09-API\\obj\\",
+        "outputPath": "c:\\Users\\47066568\\Desktop\\TP09-API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,9 +44,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
             }
           },
           "imports": [
