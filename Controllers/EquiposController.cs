@@ -15,41 +15,44 @@ public class EquiposController : ControllerBase
         return Ok(lista);
     }
 
-    [HttpGet("(IdEquipo)")]
+    [HttpGet("(id)")]
 
-    public IActionResult Get(int IdLiga){
-
-
-        if(IdLiga<1){
+    public IActionResult Get(int id){
+        if(id<1){
             return BadRequest();
         }
-        lista = BD.ListarEquipos(IdLiga);
+        Liga l = BD.ObtenerLigaPorId(id);
+        if(l == null){
+            return NotFound();
+        }
+        List<Equipo> lista = BD.ListarEquipos(id);
         if(lista==null)
         {
             return NotFound();
         }
-        return Ok();
+        return Ok(lista);
     }
     [HttpDelete("(id)")]
     public IActionResult Delete(int id){
         if(id<1){
             return BadRequest();
         }
-        Equipo c = BD.ObtenerCategorias(id);
-        if(c==null)
+        List<Equipo> lista = BD.ListarEquipos(id);
+        if(lista==null)
         {
             return NotFound();
         }
-        return Ok(c);
+        BD.BorrarEquipo(id);
+        return Ok(lista);
     }
     [HttpPost]
-    public IActionResult Post(Equipo c){
-        if(c.Nombre == null || c.Nombre == "")
+    public IActionResult Post(Equipo e){
+        if(e.Nombre == null || e.Nombre == "")
         {
             return BadRequest();
         }
 
-        BD.InsertarEquipo(c);
+        BD.AgregarEquipo(e);
         return Ok();
     }
 }

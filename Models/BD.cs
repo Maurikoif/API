@@ -4,7 +4,7 @@ using Dapper;
 using System.Collections.Generic;
 
 public class BD{
-    private static string _connectionString = @"Server=A-PHZ2-AMI-018;DataBase=TP08;Trusted_Connection=True";
+    private static string _connectionString = @"Server=A-PHZ2-CIDI-053;DataBase=TP08;Trusted_Connection=True";
 
     public static List<Equipo> ListarEquipos()
     {
@@ -15,6 +15,16 @@ public class BD{
             lista = db.Query<Equipo>(sql).ToList();
         }        
         return lista;
+    }
+    public static Liga ObtenerLigaPorId(int IdLiga){
+        Liga l;
+        string sql = "SELECT * FROM Ligas WHERE Ligas.IdLiga = @IdL ";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            l = db.QueryFirstOrDefault<Liga>(sql, new {IdL = IdLiga});
+        }
+        return l;
+
     }
         public static List<Equipo> ListarEquipos(int IdLiga)
     {
@@ -115,6 +125,13 @@ public class BD{
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             db.Execute(sql, new { IdL = IdLiga });
+        }
+    }
+        public static void BorrarEquipo(int IdEquipo){
+        string sql = "Delete From Partidos where Partidos.IdPartido in (Select Partidos.IdPartido from Partidos where Partidos.IdFecha in (select Fechas.IdFecha from Fechas where Fechas.IdLiga = @IdL)); Delete from Fechas where Fechas.IdLiga = @IdL; delete from Equipos where Equipos.IdLiga = @IdL;";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(sql, new { IdE = IdEquipo });
         }
     }
     public static int MaxIdL()
