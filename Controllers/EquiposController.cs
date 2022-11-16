@@ -55,4 +55,5 @@ public class EquiposController : ControllerBase
         BD.AgregarEquipo(e);
         return Ok();
     }
+    //hola
 }
