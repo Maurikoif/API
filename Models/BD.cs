@@ -6,13 +6,12 @@ using System.Collections.Generic;
 public class BD{
     private static string _connectionString = @"Server=A-PHZ2-AMI-018;DataBase=TP08;Trusted_Connection=True";
 
-    public static equipo put(Equipo e){
+    public static void Put(Equipo e){
         string sql = "UPDATE Equipos SET  nombre = @pNombre, escudo = @pEscudo WHERE Equipos.IdEquipo = @IdE;";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            db.Execute(sql, new { pNombre = e.Nombre, pEscudo = e.Escudo,  IdE = e.IdEquipo});
+            db.Execute(sql, new { pNombre = e.Nombre, pEscudo = e.Escudo, IdE = e.IdEquipo});
         }
-    
     }
 
     public static List<Equipo> ListarEquipos()

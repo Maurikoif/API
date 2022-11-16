@@ -22,7 +22,7 @@ public class EquiposController : ControllerBase
             return BadRequest();
         }
         Liga l = BD.ObtenerLigaPorId(id);
-        if(l.Nombre == null || l.Nombre == "" || l.Logo == null || l.Logo = ""){
+        if(l.Nombre == null || l.Nombre == "" || l.Logo == null || l.Logo == ""){
             return NotFound();
         }
         List<Equipo> lista = BD.ListarEquipos(id);
@@ -48,7 +48,7 @@ public class EquiposController : ControllerBase
     [HttpPost]
     public IActionResult Post(Equipo e){
         Liga l = BD.ObtenerLigaPorId(e.IdLiga);
-        if(l.Nombre == null || l.Nombre == "" || l.Logo == null || l.Logo = ""){
+        if(l.Nombre == null || l.Nombre == "" || l.Logo == null || l.Logo == ""){
             return NotFound();
         }
 
@@ -67,7 +67,7 @@ public class EquiposController : ControllerBase
         }
 
         Liga l = BD.ObtenerLigaPorId(e.IdLiga);
-        if(l.Nombre == null || l.Nombre == "" || l.Logo == null || l.Logo = ""){
+        if(l.Nombre == null || l.Nombre == "" || l.Logo == null || l.Logo == ""){
             return NotFound();
         }
 
@@ -75,8 +75,9 @@ public class EquiposController : ControllerBase
         {
             return BadRequest();
         }
-        e = BD.put(e);
-        return Ok(e);
+        e.IdEquipo = id;
+        BD.Put(e);
+        return Ok();
 
     }
 }
