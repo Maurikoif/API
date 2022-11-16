@@ -22,7 +22,7 @@ public class EquiposController : ControllerBase
             return BadRequest();
         }
         Liga l = BD.ObtenerLigaPorId(id);
-        if(l == null){
+        if(l.Nombre == null || l.Nombre == "" || l.Logo == null || l.Logo = ""){
             return NotFound();
         }
         List<Equipo> lista = BD.ListarEquipos(id);
@@ -47,7 +47,12 @@ public class EquiposController : ControllerBase
     }
     [HttpPost]
     public IActionResult Post(Equipo e){
-        if(e.Nombre == null || e.Nombre == "")
+        Liga l = BD.ObtenerLigaPorId(e.IdLiga);
+        if(l.Nombre == null || l.Nombre == "" || l.Logo == null || l.Logo = ""){
+            return NotFound();
+        }
+
+        if(e.Nombre == null || e.Nombre == "" || e.Escudo == null || e.Escudo == "")
         {
             return BadRequest();
         }
@@ -55,5 +60,23 @@ public class EquiposController : ControllerBase
         BD.AgregarEquipo(e);
         return Ok();
     }
-    //hola
+    [HttpPut("(id)")]
+    public IActionResult Put(int id, Equipo e){
+        if(id<1){
+            return BadRequest();
+        }
+
+        Liga l = BD.ObtenerLigaPorId(e.IdLiga);
+        if(l.Nombre == null || l.Nombre == "" || l.Logo == null || l.Logo = ""){
+            return NotFound();
+        }
+
+        if(e.Nombre == null || e.Nombre == "" || e.Escudo == null || e.Escudo == "")
+        {
+            return BadRequest();
+        }
+        e = BD.put(e);
+        return Ok(e);
+
+    }
 }

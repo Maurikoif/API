@@ -32,3 +32,13 @@ C:\Users\47066568\Desktop\Nueva carpeta\TP09-API\obj\Debug\net6.0\refint\TP09-AP
 C:\Users\47066568\Desktop\Nueva carpeta\TP09-API\obj\Debug\net6.0\TP09-API.pdb
 C:\Users\47066568\Desktop\Nueva carpeta\TP09-API\obj\Debug\net6.0\TP09-API.genruntimeconfig.cache
 C:\Users\47066568\Desktop\Nueva carpeta\TP09-API\obj\Debug\net6.0\ref\TP09-API.dll
+C:\Users\47066568\Desktop\TP09-API\obj\Debug\net6.0\TP09-API.csproj.AssemblyReference.cache
+C:\Users\47066568\Desktop\TP09-API\obj\Debug\net6.0\TP09-API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\47066568\Desktop\TP09-API\obj\Debug\net6.0\TP09-API.AssemblyInfoInputs.cache
+C:\Users\47066568\Desktop\TP09-API\obj\Debug\net6.0\TP09-API.AssemblyInfo.cs
+C:\Users\47066568\Desktop\TP09-API\obj\Debug\net6.0\TP09-API.csproj.CoreCompileInputs.cache
+C:\Users\47066568\Desktop\TP09-API\obj\Debug\net6.0\TP09-API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\47066568\Desktop\TP09-API\obj\Debug\net6.0\TP09-API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\47066568\Desktop\TP09-API\obj\Debug\net6.0\TP09-API.dll
+C:\Users\47066568\Desktop\TP09-API\obj\Debug\net6.0\refint\TP09-API.dll
+C:\Users\47066568\Desktop\TP09-API\obj\Debug\net6.0\TP09-API.pdb
