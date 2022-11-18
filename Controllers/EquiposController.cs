@@ -76,8 +76,29 @@ public class EquiposController : ControllerBase
             return BadRequest();
         }
         e.IdEquipo = id;
-        BD.Put(e);
+        BD.UpdateEquipo(e);
         return Ok();
 
+    }
+    [HttpPatch("(id)")]
+    public IActionResult Patch(int id, Equipo eNuevo){
+        if(id<1){
+            return BadRequest();
+        }
+        Liga l = BD.ObtenerLigaPorId(eNuevo.IdLiga);
+        if(l.Nombre == null || l.Nombre == "" || l.Logo == null || l.Logo == ""){
+            return NotFound();
+        }
+        Equipo eViejo = BD.VerInfoEquipo(id);
+        if(eNuevo.Nombre != null || eNuevo.Nombre != eViejo.Nombre)
+        {
+            eViejo.Nombre = eNuevo.Nombre;
+        }
+        if(eNuevo.Escudo != null || eNuevo.Escudo != eViejo.Nombre)
+        {
+            eViejo.Escudo = eNuevo.Escudo;
+        }
+        BD.UpdateEquipo(eViejo);
+        return Ok();
     }
 }
